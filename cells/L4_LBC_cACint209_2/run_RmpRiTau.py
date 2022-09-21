@@ -132,7 +132,7 @@ def run_RmpRiTau_step(
     soma_voltage_filename = os.path.join(
         recordings_dir,
         'soma_voltage_RmpRiTau_step.dat')
-    numpy.savetxt(soma_voltage_filename, zip(time, soma_voltage))
+    numpy.savetxt(soma_voltage_filename, numpy.column_stack((time, soma_voltage)))
 
     print('Soma voltage for RmpRiTau trace saved to: %s'
           % (soma_voltage_filename))
