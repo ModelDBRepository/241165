@@ -107,7 +107,7 @@ def create_recordings(cell):
     return recordings
 
 
-def run_step(step_number, plot_traces=None):
+def run_step(step_number, plot_traces=False):
     """Run step current simulation with index step_number"""
 
     cell = create_cell(add_synapses=False)
@@ -134,10 +134,7 @@ def run_step(step_number, plot_traces=None):
         'soma_voltage_step%d.dat' % step_number)
     numpy.savetxt(
             soma_voltage_filename,
-            numpy.transpose(
-               numpy.vstack((
-                    time,
-                    soma_voltage))))
+            numpy.column_stack((time, soma_voltage)))
 
     print('Soma voltage for step %d saved to: %s'
           % (step_number, soma_voltage_filename))

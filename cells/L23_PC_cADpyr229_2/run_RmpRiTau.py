@@ -96,7 +96,7 @@ def run_RmpRiTau_step(
         stim_start,
         stim_end,
         current_amplitude,
-        plot_traces=None):
+        plot_traces=False):
     """Run """
 
     cell = create_cell()
