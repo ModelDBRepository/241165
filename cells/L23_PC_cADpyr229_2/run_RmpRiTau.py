@@ -139,11 +139,11 @@ def run_RmpRiTau_step(
 
     if plot_traces:
         import pylab
-        pylab.figure(facecolor='white')
+        pylab.figure('RmpRiTau trace', facecolor='white')
         pylab.plot(recordings['time'], recordings['soma(0.5)'])
         pylab.xlabel('time (ms)')
         pylab.ylabel('Vm (mV)')
-        pylab.gcf().canvas.set_window_title('RmpRiTau trace')
+
 
     return time, soma_voltage, stim_start, stim_end
 

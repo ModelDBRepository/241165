@@ -141,11 +141,11 @@ def run_step(step_number, plot_traces=False):
 
     if plot_traces:
         import pylab
-        pylab.figure()
+        pylab.figure('Step %d' % step_number)
         pylab.plot(recordings['time'], recordings['soma(0.5)'])
         pylab.xlabel('time (ms)')
         pylab.ylabel('Vm (mV)')
-        pylab.gcf().canvas.set_window_title('Step %d' % step_number)
+
 
 
 def init_simulation():
