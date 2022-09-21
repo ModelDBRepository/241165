@@ -96,7 +96,7 @@ def run_RmpRiTau_step(
         stim_start,
         stim_end,
         current_amplitude,
-        plot_traces=None):
+        plot_traces=False):
     """Run """
 
     cell = create_cell()
@@ -132,18 +132,18 @@ def run_RmpRiTau_step(
     soma_voltage_filename = os.path.join(
         recordings_dir,
         'soma_voltage_RmpRiTau_step.dat')
-    numpy.savetxt(soma_voltage_filename, zip(time, soma_voltage))
+    numpy.savetxt(soma_voltage_filename, numpy.column_stack((time, soma_voltage)))
 
     print('Soma voltage for RmpRiTau trace saved to: %s'
           % (soma_voltage_filename))
 
     if plot_traces:
         import pylab
-        pylab.figure(facecolor='white')
+        pylab.figure('RmpRiTau trace', facecolor='white')
         pylab.plot(recordings['time'], recordings['soma(0.5)'])
         pylab.xlabel('time (ms)')
         pylab.ylabel('Vm (mV)')
-        pylab.gcf().canvas.set_window_title('RmpRiTau trace')
+
 
     return time, soma_voltage, stim_start, stim_end
 
